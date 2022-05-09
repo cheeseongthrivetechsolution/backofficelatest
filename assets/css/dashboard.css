@@ -1,0 +1,298 @@
+/* header */
+.bg_grey{
+    background: #eef0f8 !important;
+}
+.page_header {
+    padding: 12px 1rem !important;
+    box-shadow: 0 10px 30px 0 rgb(82 63 105 / 8%);
+    background: #fff;
+}
+
+.page_title {
+    font-size: 18px;
+    color: #73879c !important;
+    font-weight: 500;
+}
+
+
+/* tab */
+.dashboard_nav .nav-tabs .nav-link {
+    color: #7e8299;
+}
+
+.dashboard_nav .nav-tabs .nav-link.active,
+.dashboard_nav .nav-tabs .nav-link:hover {
+    color: #3699ff;
+    ;
+}
+
+
+.dashboard_tab_content .dashboard_search_wrap {
+    background: #fff;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 20px 5px;
+}
+
+/* form input */
+.form-label {
+    margin: 0 .5rem !important;
+}
+
+.form-control{
+    font-size: .75rem;
+    margin: 0;
+    padding: 0px 10px;
+    height: calc(1.5em + 1rem + 2px);
+}
+
+/* dashboard search wrap */
+
+.range_picker {
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+.range_picker>div:not(:last-child) {
+    border-right: 1px solid #ced4da;
+}
+
+.range_picker>div {
+    padding: 0.375rem 0.75rem;
+    font-size: .75rem;
+    font-weight: 400;
+}
+
+.clear_btn,.search_btn{
+    display: flex;
+    align-items: center;
+    border:0;
+    color:#fff;
+    padding: 8px 20px;
+    border-radius: 0.25rem;
+}
+
+.search_btn{
+    background-color:#3699ff;
+}
+.clear_btn{
+    background-color:#e74c3c
+}
+
+/* dashboard data*/
+.dashboard_data_main{
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+
+
+.dashboard_data_main .dashboard_data_wrap{
+    width:32.3%;
+    background: #fff;
+    box-shadow: 0 0 30px 0 rgb(82 63 105 / 5%);
+    border: 0;
+    min-height: 30vh;
+    margin-top:1%;
+    border-radius: 0.25rem;
+    height: 60vh;
+
+}
+
+#nav-dashboard-memberreport .dashboard_data_main .dashboard_data_wrap,
+#nav-dashboard-memberanalysisreport .dashboard_data_main .dashboard_data_wrap{
+    height: unset;
+}
+
+.dashboard_data_main .dashboard_data_wrap:not(:nth-child(3n)){
+    margin-right: 1.5%;
+}
+
+ @media (max-width: 1200px){
+    .dashboard_data_main .dashboard_data_wrap{
+        width:49%;
+        margin-right: 1%;
+        margin-top:1%;
+    }
+    .dashboard_data_main .dashboard_data_wrap:not(:nth-child(3n)){
+        margin-right: 0;
+    }
+    .dashboard_data_main .dashboard_data_wrap:not(:nth-child(2n)){
+        margin-right: 2%;
+    }
+} 
+
+@media (max-width: 850px){
+    .dashboard_data_main .dashboard_data_wrap{
+        width:100%;
+        margin-right: 1%;
+        margin-top:1%;
+    }
+    .dashboard_data_main .dashboard_data_wrap:not(:nth-child(3n)){
+        margin-right: 0;
+    }
+    .dashboard_data_main .dashboard_data_wrap:not(:nth-child(2n)){
+        margin-right: 0;
+    }
+} 
+
+/* dashboard sales stat */
+.dashboard_data_title{
+    background-color: #F64E60;
+    color: #fff;
+    padding: 20px 20px 7rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+}
+.dashboard_report{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    
+}
+
+.sales_stat_sub{
+    width: 40%;
+    border-radius: 1.25rem;
+    padding: 25px 10px;
+    margin-top: 3%;
+    font-size: 14px;
+}
+.sales_stat_sub:nth-child(odd){
+    margin-right: 3%;
+}
+
+.sales_stat_sub:first-child{
+    background: #FFF4DE !important;
+    color:#ffa800!important;
+    fill:#ffa800!important
+}
+.sales_stat_sub:first-child svg g rect[fill]{
+    fill:#ffa800!important;
+    transition:fill 0.3s ease;
+}
+
+.sales_stat_sub:nth-child(2){
+    background: #E1F0FF !important;
+    color:#3699ff!important
+}
+
+.sales_stat_sub:nth-child(2) svg g path[fill]{
+    fill:#3699ff!important;
+    transition:fill 0.3s ease;
+}
+
+.sales_stat_sub:nth-child(3){
+    background: #FFE2E5 !important;
+    color:#f64e60!important
+}
+.sales_stat_sub:nth-child(3) svg g path[fill]{
+    fill:#f64e60!important;
+    transition:fill 0.3s ease;
+}
+
+.sales_stat_sub:nth-child(4){
+    background: #C9F7F5 !important;
+    color:#1bc5bd!important;
+}
+.sales_stat_sub:nth-child(4) svg g path[fill]{
+    fill:#1bc5bd!important;
+    transition:fill 0.3s ease;
+}
+
+.sales_stat_sub:nth-child(5){
+    background: #f5ccff !important;
+    color: #e066ff!important;
+}
+.sales_stat_sub:nth-child(5) svg g path[fill]{
+    fill:#e066ff!important;
+    transition:fill 0.3s ease;
+}
+
+.sales_stat_sub:nth-child(6){
+    background: #ffddcc !important;
+    color:#f96!important;
+}
+.sales_stat_sub:nth-child(6) svg g path[fill]{
+    fill:#f96!important;
+    transition:fill 0.3s ease;
+}
+
+/* dashboard member stat */
+.dashboard_data_title2{
+    font-weight: 500;
+    font-size: 1rem;
+    color: #73879c !important;
+    padding: 20px 25px 1rem;
+}
+.dashboard_data_sub_title2{
+    color: #B5B5C3 !important;
+    font-size: 0.8rem;
+}
+
+.member_stat_sub{
+    display: flex;
+    align-items: center;
+    padding: 15px 0px;
+}
+
+.member_stat_sub div:first-child{
+    background-color: #E1F0FF;
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 1.125rem;
+
+}
+
+.member_stat_sub div:nth-child(2) a{
+    font-size: 13px;
+    color: #73879c!important;
+
+}
+
+.member_stat_sub div:nth-child(2) div{
+    font-size: 0.85rem;
+    color: #b5b5c3!important
+
+}
+.member_stat_sub:first-child div:first-child{
+    background-color: #E1F0FF;
+}
+.member_stat_sub .svg-icon-primary svg g [fill]{
+    fill: #3699FF !important;
+    transition: fill 0.3s ease;
+}
+
+.member_stat_sub:nth-child(2) div:first-child{
+    background-color: #FFF4DE;
+}
+.member_stat_sub .svg-icon-warning svg g [fill]{
+    fill:#ffa800!important;
+    transition:fill 0.3s ease;
+}
+
+.member_stat_sub:nth-child(3) div:first-child{
+    background-color: #C9F7F5;
+}
+.member_stat_sub .svg-icon-success svg g [fill]{
+    fill:#1bc5bd!important;
+    transition:fill 0.3s ease;
+}
+
+.member_stat_sub:nth-child(4) div:first-child{
+    background-color: #FFE2E5;
+}
+.member_stat_sub .svg-icon-danger svg g [fill]{
+    fill:#f64e60!important;
+    transition:fill 0.3s ease;
+}
+
+.member_stat_sub:nth-child(5) div:first-child{
+    background-color: #eee5ff;
+}
+.member_stat_sub .svg-icon-info svg g [fill]{
+    fill:#8950fc!important;
+    transition:fill 0.3s ease;
+}

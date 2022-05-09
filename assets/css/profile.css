@@ -1,0 +1,28 @@
+.textTitle{
+    color: #181C32 !important;
+    font-weight: 500 !important;
+}
+
+.subheader .subheader-separator.subheader-separator-ver {
+    width: 1px;
+    height: 22px;
+}
+
+.subheader .subheader-separator {
+    display: block;
+    width: 12px;
+    height: 4px;
+    border-radius: 2px;
+}
+.title-description{
+    padding-left: 14px;
+    border-left: 1px solid #00000026 ;
+}
+
+.border-up{
+    border-top: 1px solid #ebedf3;
+}
+
+.container_background{
+    background-color: #fcfcfe !important;
+}
