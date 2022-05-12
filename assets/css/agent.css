@@ -1,0 +1,91 @@
+.btn:hover {
+    color: white !important;
+}
+
+.length {
+    width: 200px;
+}
+
+.length b{
+    color: #73879c
+}
+
+.btn {
+    font-size: 12px;
+}
+
+.btn-outline-success {
+    color: #fff;
+    background-color: #2ecc71;
+    border-color: transparent;
+    width: 100%;
+}
+
+.thead-light{
+    background-color: #34495eF0;
+    color: #fff;
+   
+}
+
+
+table.dataTable>thead .sorting_asc, table.dataTable>thead .sorting_desc{
+    color: #3699ff;
+}
+
+.btn-edit{
+    color: #fff;
+    background-color: #abcdef;
+    border-color: transparent;
+    font-size: 10px;
+    padding: 1px 3px;
+    border-radius: 5px;
+    width: 100%;
+}
+table.dataTable{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+table.dataTable td, table.dataTable th {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    border: 1px solid #ebedf3;
+}
+
+ .table thead th{
+    padding: 8px;
+} 
+
+.page-item .page-link, .page-item span{
+    padding: 0.375rem 0.75rem !important;
+    border-radius: 5px !important;
+    width: unset;
+
+}
+
+.edit_btn_deparment{
+    color: #FFFFFF;
+    background-color: #ABCDEF;
+    border-color: transparent;
+    font-size: 10px;
+    padding: 1px 3px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.form-select:focus{
+    border: 1px solid #d2d6da;
+}
+
+.d-md-block.length{
+    padding-right: 10px;
+    width: unset;
+}
+
+.btn.btn-light-reset {
+    color: #fff;
+    background-color: #e74c3c;
+    border-color: transparent;
+    
+}
