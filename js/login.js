@@ -13,7 +13,7 @@ function onSubmit(token) {
      $(".passwordErr").show();
      return false;
   }
-  var postData = {
+  var param = {
     username: username.value.trim(),
     password: password.value.trim(),
     recaptcha: token,
@@ -22,17 +22,16 @@ function onSubmit(token) {
   $('#login_btn').prop("disabled",true)
   //Login
   $.ajax({
-    url: API_ENDPOINT + "user/login.php",
+    url: config.apiUrl + "user/login",
     dataType: "json",
     type: "POST",
-    data: postData,
+    data: param,
     success: function(data) {
       $('#login_btn').prop("disabled",false)
       data = Common.parseObj(data);
-      localStorage.setItem("iframePath","");
       if(data.code == 200) {
         window.localStorage.token = data.token;
-        window.localStorage.username = postData.username;
+        window.localStorage.username = param.username;
         window.location.replace("/");
       } else {
         Common.addAlert(data.msg,data.code)
@@ -45,7 +44,23 @@ function onSubmit(token) {
   });
 }
 
+
 $(function() {
+
+  var code = window.location.hash.substr(1);
+  //reset localstorage
+  var language = localStorage.getItem('language');
+  localStorage.clear();
+  localStorage.setItem('language', language);
+  localStorage.setItem('merchant', code);
+
+  //check merchant code
+  if (code == '') {
+    window.location.replace("/iprestrict.html");
+  } else {
+    Common.getMerchantInfo(code);
+  }
+
   //Define actions
   $("#zh_translator").on("click", function() {
   	Common.setLanguage("ZH");

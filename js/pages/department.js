@@ -18,8 +18,8 @@ const Department = {
 
                console.log(data.row);
               $("#example tbody").append(function() {
-                
-         
+
+
               });
             }
         },
@@ -76,7 +76,7 @@ $(function() {
     }
   });
 
-  
+
   Department.getDepartmentList();
   $("#addForm").change();
   $("#addBtn").on("click", function(){

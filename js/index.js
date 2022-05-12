@@ -6,7 +6,7 @@ const Home = {
       token: Common.getToken()
     };
     $.ajax({
-        url: API_ENDPOINT + "user/getIndexInfo.php",
+        url: config.apiUrl + "user/getIndexInfo",
         type: "GET",
         data: params,
         success: function(data) {
@@ -37,14 +37,13 @@ const Home = {
       token: Common.getToken()
     };
     $.ajax({
-        url: API_ENDPOINT + "user/logout.php",
+        url: config.apiUrl + "user/logout",
         type: "GET",
         data: params,
         success: function(data) {
             data = Common.parseObj(data);
             if(data.code == 200 || data.code == 401) {
-              localStorage.clear();
-              window.location.replace("../index.html");
+              window.location.replace("login.html#" + localStorage.getItem('merchant'));
             } else {
               Message.addAlert(data.msg,data.code);
             }
@@ -60,7 +59,7 @@ const Home = {
       token: Common.getToken()
     };
     $.ajax({
-        url: API_ENDPOINT + "user/soundSwitch",
+        url: config.apiUrl + "user/soundSwitch",
         type: "PUT",
         data: params,
         success: function(data) {
@@ -125,12 +124,5 @@ $(function() {
   } else {
     $("button[class*='en_translator']").removeClass("active");
     $("button[class*='zh_translator']").addClass("active");
-  }
-  //Get Current page for easy access page reload
-  $('.iframePath').on('click', function () {
-    window.localStorage.iframePath = $(this).attr('href');
-  });
-  if (window.localStorage.iframePath != "") {
-    Home.loadIframe(window.localStorage.iframePath);
   }
 });

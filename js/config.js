@@ -3,24 +3,22 @@ var env = "developmentEnv";
 
 //Site settings
 var config = {
-  apiUrl: "https://ultraflex.com/",
-  imgUrl: "production-image-path-here",
+  generalApi: "http://13.212.174.225/fgMain-api/merchantBo/",
+  apiUrl: "",
+  imgUrl: "",
   pageSizenum: 30,
-  lang : 'EN',
+  lang : '',
 }
 
 //Page Language from localStorage
 if (env == "stagingEnv") {
-	config.apiUrl = 'staging-api-path-here';
-	config.imgUrl = "staging-image-path-here";
+  config.generalApi = "http://13.212.174.225/fgMain-api/merchantBo/";
 } else if (env == "developmentEnv") {
-	config.apiUrl = 'http://13.212.174.225/ultraflex-api/bo-api/';
-	config.imgUrl = "development-image-path-here";
+  config.generalApi = "//flexgaming.api/";
 }
 
-const API_ENDPOINT = config.apiUrl;
-
 $(function() {
+  Common.getApi();
   Common.getLanguage();
 	Common.translation();
 });

@@ -1,5 +1,48 @@
 //Common use function declaration
 const Common = {
+  getMerchantInfo: function (code) {
+    var params = {
+      code: code,
+      lang: config.lang,
+    };
+    $.ajax({
+      url: config.generalApi + "merchant/getByCode",
+      dataType: "json",
+      type: "POST",
+      data: params,
+      success: function(data) {
+        data = Common.parseObj(data);
+        if(data.code == 403) {
+          window.location.replace("/iprestrict.html");
+        } else if(data.code == 500) {
+          window.location.replace("/maintenance.html");
+        } else {
+          localStorage.setItem('apiUrl', data.row.api_url);
+          localStorage.setItem('imgUrl', data.row.image_url);
+          Common.getApi();
+          Common.checkIP();
+        }
+      },
+      error: function(data) {
+        console.log("data error");
+      }
+    });
+  },
+  checkIP: function () {
+    $.ajax({
+      url: config.apiUrl + "whitelistip/check",
+      dataType: "json",
+      type: "GET",
+      success: function(data) {
+        if(data.code == 500) {
+          window.location.replace("/iprestrict.html");
+        }
+      },
+      error: function(data) {
+        console.log("data error");
+      }
+    });
+  },
   readTextFile: function(file, callback) {
       var rawFile = new XMLHttpRequest();
       rawFile.overrideMimeType("application/json");
@@ -23,16 +66,16 @@ const Common = {
               $(this).text(data[$(this).attr('key')]);
             }
         });
-        if ($('#contentIframe').length) {
-          $('#contentIframe').contents().find('.translation').each(function(){
-            var element = $(this);
-            if( element.is('input') || element.is('textarea')) {
-                $(this).attr("placeholder",data[$(this).attr('key')]);
-              } else {
-                $(this).text(data[$(this).attr('key')]);
-              }
-          });
-        }
+        // if ($('#contentIframe').length) {
+        //   $('#contentIframe').contents().find('.translation').each(function(){
+        //     var element = $(this);
+        //     if( element.is('input') || element.is('textarea')) {
+        //         $(this).attr("placeholder",data[$(this).attr('key')]);
+        //       } else {
+        //         $(this).text(data[$(this).attr('key')]);
+        //       }
+        //   });
+        // }
     });
   },
   parseObj: function (jsondata) {
@@ -48,8 +91,7 @@ const Common = {
   skipIndex: function (data) {
     if(data.code == 401) {
       alert(data.msg)
-  	  localStorage.clear();
-      parent.location.href = "login.html";
+      parent.location.href = "login.html#" + localStorage.getItem('merchant');
     }
   },
   getToken: function () {
@@ -75,10 +117,14 @@ const Common = {
   },
   setLanguage: function (lang) {
       localStorage.setItem('language', lang);
-      config.lang = lang; 
+      config.lang = lang;
   },
   getLanguage: function () {
     localStorage.getItem('language') == null ? Common.setLanguage('EN') : false;
   	config.lang = localStorage.getItem('language');
+  },
+  getApi: function () {
+    config.apiUrl = localStorage.getItem('apiUrl');
+    config.imgUrl = localStorage.getItem('apiUrl');
   },
 };
