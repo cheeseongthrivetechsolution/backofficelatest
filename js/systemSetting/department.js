@@ -7,7 +7,7 @@ const Department = {
     };
     var result;
     $.ajax({
-        url: API_ENDPOINT + "department/getDepartmentList.php",
+        url: config.apiUrl + "department/getDepartmentList.php",
         type: "GET",
         data: params,
         success: function(data) {
@@ -77,7 +77,7 @@ $(function() {
   });
 
 
-  Department.getDepartmentList();
+  // Department.getDepartmentList();
   $("#addForm").change();
   $("#addBtn").on("click", function(){
 
