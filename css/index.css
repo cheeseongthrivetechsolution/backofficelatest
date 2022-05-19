@@ -355,3 +355,13 @@ color:#B5B5C3 !important ;
 .sidebar_profile_header{
     background-color: transparent !important;
 }
+
+
+.main-content{
+    min-height: 100vh;
+    overflow: hidden;
+}
+.ps__rail-y{
+    display: none !important;
+}
+

@@ -1,7 +1,7 @@
 <link href="../../../assets/css/bootstrap.min.css" rel="stylesheet" />
 <link href="../../../assets/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
 <link href="../../../assets/css/perfect-scrollbar.css" rel="stylesheet" />
-<link href="../../css/memberManagement/memberInfo.css" rel="stylesheet">
+<link href="../../css/memberManagement/memberEdit.css" rel="stylesheet">
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
 
@@ -10,12 +10,12 @@
 <div class="bg-light bg_grey">
   <div class=" p-2 page_header">
     <div class="page-header">
-      <span class="page_title translation" key="dashboard">Member Info</span>
+      <span class="page_title translation" key="dashboard">Member Edit</span>
     </div>
   </div>
   <div class="p-3 pt-4 overflow-hidden">
-    <div class=" memberInfo_wrap">
-      <div class="memberInfo_search_wrap">
+    <div class=" memberEdit_wrap">
+      <div class="memberEdit_search_wrap">
         <div class="d-flex align-items-center flex-wrap row">
           <div class=" mt-2 d-flex align-items-center">
             <label for="" class="form-label">Merchant:</label>
@@ -106,67 +106,67 @@
               <span>Search</span>
           </div>
           <div class="d-flex align-items-center justify-content-end">
-            <button class="add_btn me-2" data-bs-toggle="modal" data-bs-target="#addMemberInfoModal">
+            <button class="add_btn me-2" data-bs-toggle="modal" data-bs-target="#addMemberEditModal">
               <span class="fa fa-plus me-2"></span>
               <span>Add</span>
             </button>
             <button class="export_btn">
               <span class="fa fa-file-excel-o me-2"></span>
-              <span>Export</span>
+              <span>Export</span> 
             </button>
           </div>
-
+         
         </div>
       </div>
-      <div class="memberInfoData_wrap">
-        <table id="memberInfoTable" class="display">
-        </table>
-
-        <!-- Legend -->
-        <div class="memberInfoTableLegend_wrap">
-          <table id="memberInfoTableLegend">
-            <tr>
-              <td>Legend</td>
-
-            </tr>
-            <tr>
-              <td class="bg-same-name"></td>
-              <td>Same Name</td>
-            </tr>
-            <tr>
-              <td class="bg-same-password"></td>
-              <td>Same Password</td>
-            </tr>
-            <tr>
-              <td class="bg-same-ip"></td>
-              <td>Same IP</td>
-            </tr>
-            <tr>
-              <td class="bg-same-name-password"></td>
-              <td>Same Name and Password</td>
-            </tr>
-            <tr>
-              <td class="bg-same-name-ip"></td>
-              <td>Same Name and IP</td>
-            </tr>
-            <tr>
-              <td class="bg-same-password-ip"></td>
-              <td>Same Password and IP</td>
-            </tr>
-            <tr>
-              <td class="bg-same-name-password-ip"></td>
-              <td>Same Name,Password and IP</td>
-            </tr>
-          </table>
-        </div>
-      </div>
+      <div class="memberEditData_wrap">
+      <table id="memberEditTable" class="display">
+      </table>
+  
+      <!-- Legend -->
+      <div class="memberEditTableLegend_wrap">
+      <table id="memberEditTableLegend">
+        <tr>
+          <td>Legend</td>
+          
+        </tr>
+        <tr>
+          <td class="bg-same-name"></td>
+          <td>Same Name</td>
+        </tr>
+        <tr>
+          <td class="bg-same-password"></td>
+          <td>Same Password</td>
+        </tr>
+        <tr>
+          <td class="bg-same-ip"></td>
+          <td>Same IP</td>
+        </tr>
+        <tr>
+          <td class="bg-same-name-password"></td>
+          <td>Same Name and Password</td>
+        </tr>
+        <tr>
+          <td class="bg-same-name-ip"></td>
+          <td>Same Name and IP</td>
+        </tr>
+        <tr>
+          <td class="bg-same-password-ip"></td>
+          <td>Same Password and IP</td>
+        </tr>
+        <tr>
+          <td class="bg-same-name-password-ip"></td>
+          <td>Same Name,Password and IP</td>
+        </tr>
+      </table>
+    </div>
+  </div>
     </div>
   </div>
 </div>
 
 
 <!-- Modal -->
-<div class="modal fade" id="addMemberInfoModal" tabindex="-1" aria-labelledby="addMemberInfoModalLabel"
+<div class="modal fade" id="addMemberEditModal" tabindex="-1" aria-labelledby="addMemberEditModalLabel"
   aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -404,5 +404,6 @@
   </div>
 </div>
 
+
 <script type="text/javascript" src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.js" defer></script>
-<script type="text/javascript" src="js/memberManagement/memberInfo.js"></script>
+<script type="text/javascript" src="js/memberManagement/memberEdit.js"></script>
