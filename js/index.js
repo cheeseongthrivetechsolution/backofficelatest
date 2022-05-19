@@ -96,7 +96,15 @@ const Home = {
 
 $(function() {
   //Get basic info for index page
-  Home.getIndexInfo();
+  var refreshIntervalId = setInterval(function () {
+    if (config.apiUrl != "") {
+      Home.getIndexInfo();
+      clearInterval(refreshIntervalId);
+    }
+  }, 100);
+
+
+
   //Define actions
   $( "#logout" ).click(function() {
     Home.logout();
@@ -108,12 +116,18 @@ $(function() {
     $("button[class*='en_translator']").removeClass("active");
     $("button[class*='zh_translator']").addClass("active");
     Common.setLanguage("ZH");
+    if($('#table').length){
+      initTable();
+    }
     Common.translation();
   });
   $(".en_translator").on("click", function() {
     $("button[class*='en_translator']").addClass("active");
     $("button[class*='zh_translator']").removeClass("active");
     Common.setLanguage("EN");
+    if($('#table').length){
+      initTable();
+    }
     Common.translation();
   });
   //Get Language for default active Button

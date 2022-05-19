@@ -1,5 +1,5 @@
 //Environment Setting productionEnv or stagingEnv  or developmentEnv
-var env = "stagingEnv";
+var env = "developmentEnv";
 
 //Site settings
 var config = {
@@ -18,7 +18,8 @@ if (env == "stagingEnv") {
 }
 
 $(function() {
-  Common.getApi();
   Common.getLanguage();
-	Common.translation();
+  Common.translation();
+  if (window.location.hash.substr(1)=="" && localStorage.getItem("merchant") != null)
+    Common.getMerchantInfo(localStorage.getItem("merchant"));
 });

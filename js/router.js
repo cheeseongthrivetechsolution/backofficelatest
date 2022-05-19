@@ -9,6 +9,7 @@ var routes = {
     404 : "pages/404.html",
     "/department" : "pages/systemSetting/department.html",
     "/dashboard" : "pages/dashboard/index.html",
+    "/bootstrap" : "pages/memberManagement/bootstrap.html",
     "/memberInfo" : "pages/memberManagement/memberInfo.html",
     "/memberEdit" : "pages/memberManagement/memberEdit.html",
     "/memberGroupList" : "pages/memberManagement/memberGroupList.html",
