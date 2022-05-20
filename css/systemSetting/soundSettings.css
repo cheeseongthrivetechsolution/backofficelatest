@@ -1,0 +1,46 @@
+.font-weight-bold {
+    font-weight: 500!important;
+}
+
+.d-md-block {
+    font-size: 12px;
+    width: 200px;
+}
+.form-select{
+    font-size: 12px;
+}
+.border-b{
+    border-bottom: 1px solid #00000012;
+}
+.text-light-dark-heading {
+    color: #73879c!important;
+}
+.font-weight-bold b {
+    font-weight: 500!important;
+}
+.mb-10, .my-10 {
+    margin-bottom: 2.5rem!important;
+}
+.mb-5, .my-5 {
+    margin-bottom: 1.25rem!important;
+}
+h5, .h5 {
+    font-size: 15px;
+}
+.row>* {
+       padding-left: unset;
+   }
+.row{
+    margin-left: 0;
+}
+.px-6 {
+    padding-left: 18px!important;
+    padding-right: 18px!important;
+}
+label, .form-label {
+    font-size: 0.875rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    color: #7b809a;
+    margin-left: 0rem;
+}

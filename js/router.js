@@ -9,6 +9,10 @@ var routes = {
     404 : "pages/404.html",
     "/department" : "pages/systemSetting/department.html",
     "/dashboard" : "pages/dashboard/index.html",
+    "/systemMessage" : "pages/systemSetting/systemMessage.html",
+    "/agent" : "pages/systemSetting/agent.html",
+    "/soundSettings" : "pages/systemSetting/soundSettings.html",
+    "/miniGameSetting" : "pages/systemSetting/miniGameSetting.html"
 };
 
 function setInnerHtml(elm, html) {
