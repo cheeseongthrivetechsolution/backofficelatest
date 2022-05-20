@@ -44,7 +44,6 @@ function initTable() {
       p.test = "test";
       return p;
     },
-    height: 550,
     locale: config.lang,
     columns: [
       [{
