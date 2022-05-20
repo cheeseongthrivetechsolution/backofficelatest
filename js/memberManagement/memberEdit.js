@@ -4,7 +4,7 @@ var dataSet = [
     // ['Garrett Winters', 'Accountant', 'Tokyo', '8422', '2011/07/25', '$170,750'],
 ];
 
-$('#memberInfoTable').dataTable({
+$('#memberEditTable').dataTable({
     dom: `<'row'<'col-sm-12'tr>>
         <'row'<'col-sm-12 col-md-10'i><'col-sm-12 col-md-2 dataTables_pager'lp>>`,
     data: dataSet,
@@ -35,7 +35,5 @@ $('#memberInfoTable').dataTable({
           }
       }
 });
-
-
 
 

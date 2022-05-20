@@ -12,7 +12,13 @@ var routes = {
     "/systemMessage" : "pages/systemSetting/systemMessage.html",
     "/agent" : "pages/systemSetting/agent.html",
     "/soundSettings" : "pages/systemSetting/soundSettings.html",
-    "/miniGameSetting" : "pages/systemSetting/miniGameSetting.html"
+    "/miniGameSetting" : "pages/systemSetting/miniGameSetting.html",
+    "/bootstrap" : "pages/memberManagement/bootstrap.html",
+    "/memberInfo" : "pages/memberManagement/memberInfo.html",
+    "/memberEdit" : "pages/memberManagement/memberEdit.html",
+    "/memberGroupList" : "pages/memberManagement/memberGroupList.html",
+    "/memberTrace" : "pages/memberManagement/memberTrace.html",
+    "/dictionary" : "pages/systemSetting/dictionary.html",
 };
 
 function setInnerHtml(elm, html) {

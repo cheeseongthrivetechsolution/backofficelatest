@@ -9,6 +9,7 @@
 	"index_form_suggest" : "推荐浏览器",
 	"index_form_usernameErr" : "请输入用户名",
 	"index_form_passwordErr" : "请输入密码",
+	"item_name" : "名字",
 
 	"_home.html": "home.html",
 	"home_title" : "Ultraflex 后台管理系统",
