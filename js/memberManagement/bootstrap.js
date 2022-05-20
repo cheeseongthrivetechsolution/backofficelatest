@@ -1,27 +1,3 @@
-var $table = $('#table')
-var selections = []
-
-function getIdSelections() {
-  return $.map($table.bootstrapTable('getSelections'), function (row) {
-    return row.id
-  })
-}
-
-function responseHandler(res) {
-  $.each(res.rows, function (i, row) {
-    row.state = $.inArray(row.id, selections) !== -1
-  })
-  return res
-}
-
-function detailFormatter(index, row) {
-  var html = []
-  $.each(row, function (key, value) {
-    html.push('<p><b>' + key + ':</b> ' + value + '</p>')
-  })
-  return html.join('')
-}
-
 function operateFormatter(value, row, index) {
   return [
     '<a class="like" href="javascript:void(0)" title="Like">',
@@ -35,10 +11,10 @@ function operateFormatter(value, row, index) {
 
 window.operateEvents = {
   'click .like': function (e, value, row, index) {
-    alert('You click like action, row: ' + JSON.stringify(row))
+    alert('You click like action, row: ' + row.name)
   },
   'click .remove': function (e, value, row, index) {
-    $table.bootstrapTable('remove', {
+    $('#table').bootstrapTable('remove', {
       field: 'id',
       values: [row.id]
     })
@@ -63,20 +39,15 @@ function totalPriceFormatter(data) {
 }
 
 function initTable() {
-  var locale = "";
-  var lang = localStorage.getItem('language');
-  if (lang == "EN" || lang == null) {
-    locale = "en-US";
-  } else {
-    locale = "zh-CN";
-  }
-
-  $table.bootstrapTable('destroy').bootstrapTable({
+  $('#table').bootstrapTable('destroy').bootstrapTable({
+    queryParams: function (p){
+      p.test = "test";
+      return p;
+    },
     height: 550,
-    locale: locale,
+    locale: config.lang,
     columns: [
       [{
-        field: 'state',
         checkbox: true,
         rowspan: 2,
         align: 'center',
@@ -95,7 +66,7 @@ function initTable() {
       }],
       [{
         field: 'name',
-        title: 'Item Name',
+        title: '<span class="translation" key="item_name"></span>',
         sortable: true,
         footerFormatter: totalNameFormatter,
         align: 'center'
@@ -115,6 +86,7 @@ function initTable() {
       }]
     ]
   })
+  Common.translation();
 }
 
 $(function() {

@@ -11,7 +11,7 @@
 	"index_form_passwordErr" : "Please enter password",
 	"title_home" : "Ultraflex Back Office",
 	"user_profile_title" : "User Profile",
-
+	"item_name" : "Item Name",
 	"_home.html": "home.html",
 	"home_title" : "Ultraflex Back Office",
 	"home_profile_title" : "User Profile",

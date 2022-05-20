@@ -118,8 +118,9 @@ $(function() {
     Common.setLanguage("ZH");
     if($('#table').length){
       initTable();
+    } else {
+      Common.translation();
     }
-    Common.translation();
   });
   $(".en_translator").on("click", function() {
     $("button[class*='en_translator']").addClass("active");
@@ -127,8 +128,10 @@ $(function() {
     Common.setLanguage("EN");
     if($('#table').length){
       initTable();
+    } else {
+      Common.translation();
     }
-    Common.translation();
+
   });
   //Get Language for default active Button
   var buttonLanguage = config.lang;

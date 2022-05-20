@@ -61,10 +61,12 @@ const Common = {
         $('.translation').each(function(index,element){
           var element = $(this);
           if( element.is('input') || element.is('textarea')) {
-              $(this).attr("placeholder",data[$(this).attr('key')]);
-            } else {
-              $(this).text(data[$(this).attr('key')]);
-            }
+            $(this).attr("placeholder",data[$(this).attr('key')]);
+          } else if (element.is('a'))  {
+            $(this).attr("title",data[$(this).attr('key')]);
+          } else {
+            $(this).text(data[$(this).attr('key')]);
+          }
         });
         // if ($('#contentIframe').length) {
         //   $('#contentIframe').contents().find('.translation').each(function(){
