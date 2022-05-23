@@ -1,5 +1,5 @@
 //Environment Setting productionEnv or stagingEnv  or developmentEnv
-var env = "developmentEnv";
+var env = "stagingEnv";
 
 //Site settings
 var config = {
