@@ -1,0 +1,211 @@
+<!-- import css and js -->
+<link href="css/common.css" rel="stylesheet">
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+<link href="assets/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+<link href="assets/css/bootstrap-table.min.css" rel="stylesheet" />
+<link href="assets/css/perfect-scrollbar.css" rel="stylesheet" />
+<link href="css/systemSetting/miniGameSetting.css" rel="stylesheet" />
+<!-- <link href="css/systemSetting/agent.css" rel="stylesheet" /> -->
+<script src="assets/js/bootstrap-table-jquery.min.js"></script>
+
+<!-- content -->
+<div class="container_background border-up">
+    <div class="mx-3 p-2">
+        <div class="page-header">
+            <h5 class="translation  font-weight-bold mt-2 mb-2 mr-5 titleText" key="">Mini Game Setting</h5>
+        </div>
+    </div>
+</div>
+<div class="m-3 container_background rounded-3 ">
+    <div class="row g-3 m-3">
+        <div class="d-flex bd-highlight mb-3">
+            <div class="col-md-3 my-2 my-md-0">
+                <div class="d-flex align-items-center ">
+                    <label class="mr-3 mb-0  d-md-block length"><b>Name:</b></label>
+
+                    <input class="form-control" type="text" name="search_name" style="border-color:#b3b3b3;">
+                </div>
+            </div>
+            <div class="col-md-3 my-2 my-md-0">
+                <div class="d-flex align-items-center ms-2">
+                    <label class="mr-3 mb-0  d-md-block length">Status:</label>
+
+                    <select class="form-select" name="search_merchant" aria-label="Default select example">
+                        <option value="">All</option>
+                        <option value="0">Active</option>
+                        <option value="1">Inactive</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between bd-highlight mb-3">
+            <div class=" bd-highlight">
+
+                <button id="searchBtn" class="btn btn-light-primary ">
+                    <i class="fas fa-spinner fa-spin d-none"></i>
+                    <i class="fa fa-search "></i>
+                    <span class="translation" key="btn_search"></span>
+                </button>
+            </div>
+            <div class=" bd-highlight">
+                <button class="btn btn-outline-success " data-bs-toggle="modal" data-bs-target="#addSetting">
+                    <i class="fas fa-spinner fa-spin d-none"></i>
+                    <i class="fa fa-plus "></i>
+                    <span class="translation" key="btn_add"></span>
+                </button>
+
+
+
+                <!-- <button id="exportBtn" class="btn btn-outline-dark ">
+          <i class="fas fa-spinner fa-spin d-none"></i>
+          <i class="fa fa-file-excel-o "></i>
+          <span class="translation" key="btn_export"></span>
+        </button> -->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="m-3 container_background rounded-3">
+    <div class="row g-3 m-3">
+        <table id="miniGameTable" class="table table-hover" style="width:100%">
+            <thead class="thead-light">
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Prize</th>
+                    <th>Status</th>
+                    <th>Amount</th>
+                    <th>Probability</th>
+                    <th>Created Time</th>
+                    <th>Modified Time</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+            <!-- <tfoot>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Office</th>
+          <th>Age</th>
+          <th>Start date</th>
+          <th>Salary</th>
+          <th>Action</th>
+        </tr>
+      </tfoot> -->
+        </table>
+    </div>
+</div>
+
+<div class="modal fade " id="addSetting" tabindex="-1" aria-labelledby="addUserLabel" aria-hidden="true">
+    <div class="modal-dialog " style="max-width:600px;">
+        <div class="modal-content">
+            <form action method="post" class="form" id="kt_form">
+                <div class="modal-header text-center">
+                    <h5 class="modal-title w-100 font-weight-bold text-light-dark-heading trans_add_user"
+                        id="exampleModalLabel">
+                        Add Setting: </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+
+                <div class="modal-body mx-3">
+                    <div class="wizard wizard-4" id="kt_wizard" data-wizard-state="step-first"
+                        data-wizard-clickable="true">
+
+
+
+                        <div class="my-5 step" data-wizard-type="step-content" data-wizard-state="current">
+                            <div class="form-group row">
+                                <label
+                                    class="col-xl-3 col-lg-3 col-form-label text-light-dark-heading trans_login_name">Name:</label>
+                                <div class="col-lg-9 col-xl-9">
+                                    <input class="form-control" name="login_name" type="text" value=""
+                                        pattern="[A-Za-z0-9]+" style="border-color:#b3b3b3;" required="">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label
+                                    class="col-xl-3 col-lg-3 col-form-label text-dark font-weight-bold text-light-dark-heading trans_prize">Prize:</label>
+                                <div class="col-lg-9 col-xl-9">
+                                    <div id="">
+                                        <div class="input-group mb-3">
+                                            <input type="text" name="prize[]" style="border-color:#b3b3b3;"
+                                                class="form-control m-input add_input" autocomplete="off">
+                                            <div class="input-group-append">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="newRow"></div>
+                                    <button id="addRow" type="button" class="btn btn-info"><span
+                                            class="trans_add_row">Add Row</span></button>
+
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label
+                                    class="col-xl-3 col-lg-3 col-form-label text-light-dark-heading trans_full_name"><b>Amount:</b></label>
+                                <div class="col-lg-9 col-xl-9">
+                                    <input class="form-control" name="full_name" type="text" value=""
+                                        style="border-color:#b3b3b3;" required="">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label
+                                    class="col-xl-3 col-lg-3 col-form-label text-light-dark-heading trans_department"><b>Probablility:(%)</b></label>
+                                <div class="col-lg-9 col-xl-9">
+                                    <input type="number" name="chance" min="0.01" step="0.01"
+                                        style="border-color:#b3b3b3;" class="form-control add_input" autocomplete="off"
+                                        required="">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label
+                                    class="col-xl-3 col-lg-3 col-form-label text-light-dark-heading trans_status">Status:</label>
+                                <div class="col-lg-9 col-xl-9">
+                                    <select name="status" style="border-color:#b3b3b3;" class="form-control"
+                                        required="">
+                                        <option value="A" class="trans_active">Active</option>
+                                        <option value="I" class="trans_inactive">Inactive</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="modal-footer d-flex justify-content-center border-top">
+                            <div>
+                                <input type="hidden" name="member_id" id="member_id" value="">
+                                <input type="submit" name="submit" value="Submit"
+                                    class="btn btn-primary mr-2 trans_submit">
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+
+<!-- import js -->
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="assets/js/bootstrap-table.min.js"></script>
+<script src="js/systemSetting/miniGameSetting.js"></script>

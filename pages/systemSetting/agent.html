@@ -1,21 +1,24 @@
+<!-- import css and js -->
+<link href="css/common.css" rel="stylesheet">
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+<link href="assets/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+<link href="assets/css/bootstrap-table.min.css" rel="stylesheet" />
+<link href="assets/css/perfect-scrollbar.css" rel="stylesheet" />
+<link href="css/systemSetting/agent.css" rel="stylesheet" />
+<script src="assets/js/bootstrap-table-jquery.min.js"></script>
 
-  <link href="../../assets/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
-  <link href="../../assets/css/bootstrap-table.min.css" rel="stylesheet" />
-  <link href="../../assets/css/perfect-scrollbar.css" rel="stylesheet" />
-  <link href="../../assets/css/agent.css" rel="stylesheet" />
 
-
-
-  <div class="container_background border-up">
-    <div class="mx-3 p-2">
-      <div class="page-header">
-        <h5 class="translation  font-weight-bold mt-2 mb-2 mr-5 titleText" key="">Agent</h5>
-      </div>
+<!-- content -->
+<div class="container_background border-up">
+  <div class="mx-3 p-2">
+    <div class="page-header">
+      <h5 class="translation  font-weight-bold mt-2 mb-2 mr-5 titleText" key="">Agent</h5>
     </div>
   </div>
-  <div class="m-3 container_background rounded-3 ">
-    <div class="row g-3 m-3">
-      <!-- <div class="col-md-4 form-group">
+</div>
+<div class="m-3 container_background rounded-3 ">
+  <div class="row g-3 m-3">
+    <!-- <div class="col-md-4 form-group">
         <input type="text" class="form-control translation" placeholder="" key="department_name" id="name" autocomplete="off">
       </div>
       <div class="col-md-2 form-group">
@@ -26,177 +29,314 @@
           <option value="0" class="translation" key="select_deleted"></option>
         </select>
       </div> -->
-      <div class="d-flex justify-content-between bd-highlight mb-3">
-        <div class="col-md-3 my-2 my-md-0">
-          <div class="d-flex align-items-center">
-            <label class="mr-3 mb-0  d-md-block length"><b>Role:</b></label>
+    <div class="d-flex justify-content-between bd-highlight mb-3">
+      <div class="col-md-3 my-2 my-md-0">
+        <div class="d-flex align-items-center">
+          <label class="mr-3 mb-0  d-md-block length"><b>Role:</b></label>
 
-            <select class="form-select" name="search_role" aria-label="Default select example">
-              <option value=""></option>
-              <option value="1">Flexgaming</option>
-            </select>
-          </div>
+          <select class="form-select" name="search_role" aria-label="Default select example  " id='role_select'>
+            <option value=" ">All</option>
+            <option value="1">Admin</option>
+            <option value="2">Customer Service</option>
+          </select>
         </div>
       </div>
-      <div class="d-flex justify-content-between bd-highlight mb-3">
-        <div class=" bd-highlight d-flex">
-          <button id="clear" class="btn btn-light-reset">
-            <span class="fa fa-remove me-2" style="color:white;"> </span>
-            <span class="trans_clear">Clear</span>
-          </button>
-          <button id="searchBtn" class="btn btn-light-primary ">
-            <i class="fas fa-spinner fa-spin d-none"></i>
-            <i class="fa fa-search me-2"></i>
-            <span class="translation" key="btn_search"></span>
-          </button>
-        </div>
-        <div class=" bd-highlight">
-          <button id="addBtn" class="btn btn-outline-success " data-bs-toggle="modal" data-bs-target="#addForm">
-            <i class="fas fa-spinner fa-spin d-none"></i>
-            <i class="fa fa-plus "></i>
-            <span class="translation" key="btn_add"></span>
-          </button>
+    </div>
+    <div class="d-flex justify-content-between bd-highlight mb-3">
+      <div class=" bd-highlight d-flex">
+        <button id="clear" class="btn btn-light-reset">
+          <span class="fa fa-remove me-2" style="color:white;"> </span>
+          <span class="trans_clear">Clear</span>
+        </button>
+        <button id="searchBtn" class="btn btn-light-primary ">
+          <i class="fas fa-spinner fa-spin d-none"></i>
+          <i class="fa fa-search me-2"></i>
+          <span class="translation" key="btn_search"></span>
+        </button>
+      </div>
+      <div class=" bd-highlight">
+        <button id="addBtn" class="btn btn-outline-success " data-bs-toggle="modal" data-bs-target="#addUser">
+          <i class="fas fa-spinner fa-spin d-none"></i>
+          <i class="fa fa-plus "></i>
+          <span class="translation" key="btn_add"></span>
+        </button>
 
 
 
-          <!-- <button id="exportBtn" class="btn btn-outline-dark ">
+        <!-- <button id="exportBtn" class="btn btn-outline-dark ">
             <i class="fas fa-spinner fa-spin d-none"></i>
             <i class="fa fa-file-excel-o "></i>
             <span class="translation" key="btn_export"></span>
           </button> -->
-        </div>
       </div>
     </div>
   </div>
-  <div class="m-3 container_background rounded-3">
-    <div class="row g-3 m-3">
-      <table id="example" class="table table-hover" style="width:100%">
-        <thead class="thead-light">
-          <tr>
-            <th>#</th>
-            <th>Merchant</th>
-            <th>Department</th>
-            <th>Remark</th>
-            <th>Status</th>
-            <th>Last Modified By</th>
-            <th>Last Modified Date</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
+</div>
+<div class="m-3 container_background rounded-3">
+  <div class="row g-3 m-3">
+    <table id="agentTable" class="table table-hover" style="width:100%">
+      <thead class="thead-light">
+        <tr>
+          <th>#</th>
+          <th>Login name</th>
+          <th>Full Name</th>
+          <th>User Type</th>
+          <th>Created Time</th>
+          <th>Action</th>
+          
+        </tr>
+      </thead>
+      <tbody>
 
-        </tbody>
-        <!-- <tfoot>
-          <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Age</th>
-            <th>Start date</th>
-            <th>Salary</th>
-            <th>Action</th>
-          </tr>
-        </tfoot> -->
-      </table>
-    </div>
+      </tbody>
+    </table>
   </div>
+</div>
 
 
 
-  <div class="modal fade " id="addForm" tabindex="-1" aria-labelledby="addFormLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Create a User Role</h5>
+<div class="modal fade " id="addUser" tabindex="-1" aria-labelledby="addUserLabel" aria-hidden="true">
+  <div class="modal-dialog " style="max-width:600px;">
+    <div class="modal-content">
+      <form action method="post" class="form" id="kt_form">
+        <div class="modal-header text-center">
+          <h5 class="modal-title w-100 font-weight-bold text-light-dark-heading trans_add_user" id="exampleModalLabel">
+            Add User: </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          <form method="post">
-            <div class="form-group row">
-              <label class="col-xl-3 col-lg-3 col-form-label text-light-dark-heading"> Name: </label>
-              <div class="col-lg-9 col-xl-9">
-                <input name="name" class="form-control form-control-solid form-control-lg" id="addname"
-                  style="border-color:#b3b3b3;" required />
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label class="col-xl-3 col-lg-3 col-form-label text-light-dark-heading"> Merchant: </label>
-              <div class="col-lg-9 col-xl-9">
-                <select class="form-control form-control-solid form-control-lg form-select" name="merchant"
-                  style="border-color:#b3b3b3;" id="addmerchant" required>
-                  <option value='1'>Flexgaming</option>";
-                </select>
-
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label class="col-xl-3 col-lg-3 col-form-label text-light-dark-heading"> Remark:</label>
-              <div class="col-lg-9 col-xl-9">
-                <input name="remark" class="form-control form-control-solid form-control-lg"
-                  style="border-color:#b3b3b3;" id="addremark" />
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label class="col-xl-3 col-lg-3 col-form-label text-light-dark-heading"> Status:</label>
-              <div class="col-lg-9 col-xl-9 col-form-label">
 
 
-                <input type="radio" name="status" value="1">
-                <label class='text-light-dark-heading'>Active</label>
-
-                <input type="radio" name="status" value="2">
-                <label class='text-light-dark-heading'>Inactive</label>
-
-                <input type="radio" name="status" value="3">
-                <label class='text-light-dark-heading'>Suspended</label>
-
-                <input type="radio" name="status" value="4">
-                <label class='text-light-dark-heading'>Deleted</label>
-              </div>
-            </div>
+        <div class="modal-body mx-3">
+          <div class="wizard wizard-4" id="kt_wizard" data-wizard-state="step-first" data-wizard-clickable="true">
 
 
-            <div class="form-group row">
-              <label class="col-xl-3 col-lg-3 col-form-label text-light-dark-heading"> Level: </label>
-              <div class="col-lg-9 col-xl-9">
-                <select class="form-control form-control-solid form-control-lg form-select" name="addlevel"
-                  id="addlevel" style="border-color:#b3b3b3;" required />
-                <option value='1'>Manager</option>
-                <option value='2'>Supervisor</option>
-                <option value='3'>Staff</option>
-                </select>
 
-              </div>
-            </div>
-
-            <div class="row" style="padding-left:20px; padding-right:20px;">
-              <div class="col-4">
-                <div class="form-check p-0">
-                  <input type="checkbox" class="form-check-input " name="all_section_right" id='all_section_right'
-                    value=""> <label class="form-check-label"> Section/ Access Right </label>
+            <div class="my-5 step" data-wizard-type="step-content" data-wizard-state="current">
+              <div class="form-group row">
+                <label class="col-xl-3 col-lg-3 col-form-label text-light-dark-heading trans_login_name">Login
+                  Name:</label>
+                <div class="col-lg-9 col-xl-9">
+                  <input class="form-control" name="login_name" type="text" value="" pattern="[A-Za-z0-9]+"
+                    style="border-color:#b3b3b3;" required="">
                 </div>
-
-
-
               </div>
 
+
+              <div class="form-group row">
+                <label class="col-xl-3 col-lg-3 col-form-label text-light-dark-heading trans_password">Password:</label>
+                <div class="col-lg-9 col-xl-9">
+                  <input class="form-control" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+                    type="password" style="border-color:#b3b3b3;" value="" required="">
+                  <span class="form-text text-muted trans_password_must">Password must contain at least 8 characters,
+                    at least one alphabet and at least one number.</span>
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label class="col-xl-3 col-lg-3 col-form-label text-light-dark-heading trans_full_name">Full
+                  Name:</label>
+                <div class="col-lg-9 col-xl-9">
+                  <input class="form-control" name="full_name" type="text" value="" style="border-color:#b3b3b3;"
+                    required="">
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label
+                  class="col-xl-3 col-lg-3 col-form-label text-light-dark-heading trans_department">Department:</label>
+                <div class="col-lg-9 col-xl-9">
+                  <select name="user_type" class="form-select" style="border-color:#b3b3b3;" required="">
+                    <option value=""></option>
+                    <option value="1">ADMIN</option>
+                    <option value="2">CUSTOMER SERVICE</option>
+                    <option value="3">Project Team</option>
+                    <option value="4">MARKETING</option>
+                    <option value="19">test1</option>
+                    <option value="21">test7</option>
+                    <option value="24">Manager</option>
+                    <option value="25">test11</option>
+                    <option value="27">test17</option>
+                    <option value="30">dashboard only</option>
+                    <option value="31">SUPERVISOR</option>
+                    <option value="32">Project Manager </option>
+                    <option value="34">test9</option>
+                    <option value="35">Demo Testing</option>
+                    <option value="36">test2</option>
+                    <option value="37">jq</option>
+                    <option value="38">Testing</option>
+                    <option value="39">qwer123</option>
+                    <option value="40">qwer123</option>
+                    <option value="41">qwer123</option>
+                    <option value="42">qweer</option>
+                    <option value="43">yong testing</option>
+                    <option value="44">Lau</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-xl-3 col-lg-3 col-form-label text-light-dark-heading trans_status">Status:</label>
+                <div class="col-lg-9 col-xl-9">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input2" type="radio" name="status" value="A">
+                    <label class="form-check-label text-light-dark-heading trans_active">Active</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input2" type="radio" name="status" value="I">
+                    <label class="form-check-label text-light-dark-heading trans_inactive">Inactive</label>
+                  </div>
+                </div>
+              </div>
             </div>
-          </form>
+
+
+            <div class="modal-footer d-flex justify-content-center border-top">
+              <div>
+                <input type="hidden" name="member_id" id="member_id" value="">
+                <input type="submit" name="submit" value="Submit" class="btn btn-primary mr-2 trans_submit">
+              </div>
+            </div>
+
+
+
+          </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
+      </form>
     </div>
+
   </div>
+</div>
 
 
-  <script src="assets/js/bootstrap-table-jquery.min.js"></script>
-  <script src="assets/js/bootstrap-datetimepicker.min.js"></script>
-  <script src="assets/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
-  <script src="assets/js/bootstrap-table.min.js"></script>
-  <script src="js/pages/agent.js"></script>
+<div class="modal fade " id="editUser" tabindex="-1" aria-labelledby="addUserLabel" aria-hidden="true">
+  <div class="modal-dialog " style="max-width:600px;">
+    <div class="modal-content">
+      <form action method="post" class="form" id="kt_form">
+        <div class="modal-header text-center">
+          <h5 class="modal-title w-100 font-weight-bold text-light-dark-heading trans_add_user" id="exampleModalLabel">
+            Edit User: </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+
+        <div class="modal-body mx-3">
+          <div class="wizard wizard-4" id="kt_wizard" data-wizard-state="step-first" data-wizard-clickable="true">
+
+
+
+            <div class="my-5 step" data-wizard-type="step-content" data-wizard-state="current">
+              <div class="form-group row">
+                <label class="col-xl-3 col-lg-3 col-form-label text-light-dark-heading trans_login_name">Login
+                  Name:</label>
+                <div class="col-lg-9 col-xl-9">
+                  <input class="form-control" name="login_name" type="text" value="" pattern="[A-Za-z0-9]+"
+                    style="border-color:#b3b3b3;" required="">
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label class="col-xl-3 col-lg-3 col-form-label text-light-dark-heading trans_password">Password:</label>
+                <div class="col-lg-9 col-xl-9">
+                  <input class="form-control" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+                    type="password" style="border-color:#b3b3b3;" value="" required="">
+                  <span class="form-text text-muted trans_password_must">Password must contain at least 8 characters,
+                    at least one alphabet and at least one number.</span>
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label class="col-xl-3 col-lg-3 col-form-label text-light-dark-heading trans_full_name">Full
+                  Name:</label>
+                <div class="col-lg-9 col-xl-9">
+                  <input class="form-control" name="full_name" type="text" value="" style="border-color:#b3b3b3;"
+                    required="">
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label
+                  class="col-xl-3 col-lg-3 col-form-label text-light-dark-heading trans_department">Department:</label>
+                <div class="col-lg-9 col-xl-9">
+                  <select name="user_type" class="form-select" style="border-color:#b3b3b3;" required="">
+                    <option value=""></option>
+                    <option value="1">ADMIN</option>
+                    <option value="2">CUSTOMER SERVICE</option>
+                    <option value="3">Project Team</option>
+                    <option value="4">MARKETING</option>
+                    <option value="19">test1</option>
+                    <option value="21">test7</option>
+                    <option value="24">Manager</option>
+                    <option value="25">test11</option>
+                    <option value="27">test17</option>
+                    <option value="30">dashboard only</option>
+                    <option value="31">SUPERVISOR</option>
+                    <option value="32">Project Manager </option>
+                    <option value="34">test9</option>
+                    <option value="35">Demo Testing</option>
+                    <option value="36">test2</option>
+                    <option value="37">jq</option>
+                    <option value="38">Testing</option>
+                    <option value="39">qwer123</option>
+                    <option value="40">qwer123</option>
+                    <option value="41">qwer123</option>
+                    <option value="42">qweer</option>
+                    <option value="43">yong testing</option>
+                    <option value="44">Lau</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-xl-3 col-lg-3 col-form-label text-light-dark-heading trans_status">Status:</label>
+                <div class="col-lg-9 col-xl-9">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input2" type="radio" name="status" value="A">
+                    <label class="form-check-label text-light-dark-heading trans_active">Active</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input2" type="radio" name="status" value="I">
+                    <label class="form-check-label text-light-dark-heading trans_inactive">Inactive</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="modal-footer d-flex justify-content-center border-top">
+              <div>
+                <input type="hidden" name="member_id" id="member_id" value="">
+                <input type="submit" name="submit" value="Submit" class="btn btn-primary mr-2 trans_submit">
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- import js -->
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="assets/js/bootstrap-table.min.js"></script>
+<script src="js/systemSetting/agent.js"></script>
+<script>
+
+
+
+
+
+
+</script>
