@@ -356,6 +356,11 @@ color:#B5B5C3 !important ;
     background-color: transparent !important;
 }
 
+.ps__rail-y{
+    display: none !important;
+}
+
+
 
 .main-content{
     min-height: 100vh;
@@ -364,4 +369,3 @@ color:#B5B5C3 !important ;
 .ps__rail-y{
     display: none !important;
 }
-

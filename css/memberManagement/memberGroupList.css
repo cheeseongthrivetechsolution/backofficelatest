@@ -250,7 +250,22 @@ button.close{
     border:0;
     background: transparent;
 }
-
- #addMemberGroupListModal .form-control {
-    width: 75%!important;
+#addMemberGroupListModal  .form-label {
+    /* width: 75%!important; */
+    width: 25%!important;
+    font-size: .75rem;
 } 
+#addMemberGroupListModal .w-50 .form-label {
+    /* width: 75%!important; */
+    width: 75%!important;
+    font-size: .75rem;
+} 
+ #addMemberGroupListModal .form-control {
+    /* width: 75%!important; */
+} 
+
+.table .thead-light th {
+    color: #a2a3b7;
+    background: rgba(52,73,94,.94);
+    border-color: #ebedf3;
+}
