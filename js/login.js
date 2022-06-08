@@ -31,7 +31,6 @@ function onSubmit(token) {
       data = Common.parseObj(data);
       if(data.code == 200) {
         window.localStorage.token = data.token;
-        window.localStorage.username = param.username;
         window.location.replace("/");
       } else {
         Common.addAlert(data.msg,data.code)

@@ -1,4 +1,6 @@
 const route = (event) => {
+    if($(".fixed-plugin").hasClass("show"))
+      $(".fixed-plugin").removeClass("show")
     event = event || window.event;
     event.preventDefault();
     window.history.pushState({}, "", event.target.href);
@@ -19,6 +21,9 @@ var routes = {
     "/memberGroupList" : "pages/memberManagement/memberGroupList.html",
     "/memberTrace" : "pages/memberManagement/memberTrace.html",
     "/dictionary" : "pages/systemSetting/dictionary.html",
+    "/menu" : "pages/systemSetting/menu.html",
+    "/profile" : "pages/profile.html",
+
 };
 
 function setInnerHtml(elm, html) {
@@ -39,6 +44,7 @@ const handleLocation = async () => {
     const route = routes[path]|| routes[404];
     const html = await fetch(route).then((data) => data.text());
     setInnerHtml(document.querySelector('#main-content'), html);
+    document.getElementById("main-content").scrollIntoView();
     Common.translation();
 };
 

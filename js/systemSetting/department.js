@@ -33,48 +33,28 @@ const Department = {
 
 
 $(function() {
-  $('#example').DataTable({
-    responsive: false,
+  var start = moment().subtract(29, 'days');
+    var end = moment();
 
-    // DOM Layout settings
-    dom: `<'row'<'col-sm-12'tr>>
-        <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,
-
-    lengthMenu: [5, 10, 25, 50],
-
-    pageLength: 50,
-
-    language: {
-      'lengthMenu': 'Display _MENU_',
-    },
-
-    // Order settings
-    order: [
-      [6, 'desc']
-    ],
-    // order: [[5, 'asc']],
-
-    columnDefs: [],
-
-    "footerCallback": function (row, data, start, end, display) {
-      var totalAmount = 0;
-      for (var i = 0; i < data.length; i++) {
-        totalAmount += parseFloat(data[i][2]);
-      }
-      totalAmount = totalAmount.toFixed(2);
-
-      var api = this.api();
-      $(api.column(2).footer()).html(totalAmount);
-    },
-
-    // "drawCallback": function (settings) {
-    //   table.wrap("<div class='table-responsive'></div>");
-    // },
-    "initComplete": function () {
-      $("#kt_datatable").css('display', 'table');
-      $("#loading2").fadeOut();
+    function cb(start, end) {
+        $('#daterangepicker span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
     }
-  });
+
+    $('#daterangepicker').daterangepicker({
+      locale: zh_daterangepicker,
+        startDate: start,
+        endDate: end,
+        ranges: {
+           'Today': [moment(), moment()],
+           'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+           'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+           'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+           'This Month': [moment().startOf('month'), moment().endOf('month')],
+           'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        }
+    }, cb);
+
+    cb(start, end);
 
 
   // Department.getDepartmentList();

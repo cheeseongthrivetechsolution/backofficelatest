@@ -1,5 +1,5 @@
 //Index page function declaration
-const Home = {
+const Index = {
   getIndexInfo: function () {
     var params = {
       lang: config.lang,
@@ -14,14 +14,9 @@ const Home = {
             Common.skipIndex(data);
             if (data.code == 200){
               $(".profileImage").attr('src', data.row.avatar);
-              $(".profileName").append(data.row.name);
+              $(".profileName").text(data.row.name);
               $(".departmentName").text(data.row.department);
-              $(".positionName").text(data.row.position);
-              if (data.row.sound == 0) {
-                $(".speakerOnOff i").removeClass("fa-volume-up");
-                $(".speakerOnOff i").addClass("fa-volume-mute");
-                $('.speakerOnOff:checkbox').prop("checked", false);
-              }
+              $(".roleName").text(data.row.role);
             } else {
               Message.addAlert(data.msg,data.code);
             }
@@ -94,52 +89,36 @@ const Home = {
   },
 };
 
+function changeLanguageImg(){
+  if (config.lang == "ZH") {
+    $("#dropdownMenuButton img").attr("src", "assets/img/home/015-china.svg");
+  } else {
+    $("#dropdownMenuButton img").attr("src", "assets/img/home/226-united-states.svg");
+  }
+}
+
+
 $(function() {
+  changeLanguageImg();
   //Get basic info for index page
   var refreshIntervalId = setInterval(function () {
     if (config.apiUrl != "") {
-      Home.getIndexInfo();
+      Index.getIndexInfo();
       clearInterval(refreshIntervalId);
     }
   }, 100);
 
-
-
   //Define actions
   $( "#logout" ).click(function() {
-    Home.logout();
+    Index.logout();
   });
-  $( ".speakerOnOff" ).click(function() {
-    Home.speaker();
-  });
-  $(".zh_translator").on("click", function() {
-    $("button[class*='en_translator']").removeClass("active");
-    $("button[class*='zh_translator']").addClass("active");
-    Common.setLanguage("ZH");
-    if($('#table').length){
+  $(".translator").on("click", function() {
+    Common.setLanguage($(this).attr("data-lang"));
+    changeLanguageImg();
+    if($('#bootstrapTable').length){
       initTable();
     } else {
       Common.translation();
     }
   });
-  $(".en_translator").on("click", function() {
-    $("button[class*='en_translator']").addClass("active");
-    $("button[class*='zh_translator']").removeClass("active");
-    Common.setLanguage("EN");
-    if($('#table').length){
-      initTable();
-    } else {
-      Common.translation();
-    }
-
-  });
-  //Get Language for default active Button
-  var buttonLanguage = config.lang;
-  if (buttonLanguage == "EN") {
-    $("button[class*='en_translator']").addClass("active");
-    $("button[class*='zh_translator']").removeClass("active");
-  } else {
-    $("button[class*='en_translator']").removeClass("active");
-    $("button[class*='zh_translator']").addClass("active");
-  }
 });

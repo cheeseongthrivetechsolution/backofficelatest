@@ -12,15 +12,23 @@ const Common = {
       data: params,
       success: function(data) {
         data = Common.parseObj(data);
-        if(data.code == 403) {
+        if(data.code == 403 || data.code == 401 ) {
           window.location.replace("/iprestrict.html");
         } else if(data.code == 500) {
           window.location.replace("/maintenance.html");
         } else {
           localStorage.setItem('apiUrl', data.row.api_url);
           localStorage.setItem('imgUrl', data.row.image_url);
+          localStorage.setItem('favicon', data.row.favicon);
+          localStorage.setItem('logo', data.row.logo);
           Common.getApi();
           Common.checkIP();
+          var refreshIntervalId = setInterval(function () {
+            if (config.imgUrl != "") {
+              Common.setLogo();
+              clearInterval(refreshIntervalId);
+            }
+          }, 100);
         }
       },
       error: function(data) {
@@ -42,6 +50,10 @@ const Common = {
         console.log("data error");
       }
     });
+  },
+  setLogo: function () {
+    $("#favicon").attr('href', config.imgUrl+localStorage.getItem("favicon"));
+    $('#logo').prepend('<img src="'+config.imgUrl+localStorage.getItem("logo")+'" class="img-fluid mx-auto d-block" />');
   },
   readTextFile: function(file, callback) {
       var rawFile = new XMLHttpRequest();
@@ -68,16 +80,6 @@ const Common = {
             $(this).text(data[$(this).attr('key')]);
           }
         });
-        // if ($('#contentIframe').length) {
-        //   $('#contentIframe').contents().find('.translation').each(function(){
-        //     var element = $(this);
-        //     if( element.is('input') || element.is('textarea')) {
-        //         $(this).attr("placeholder",data[$(this).attr('key')]);
-        //       } else {
-        //         $(this).text(data[$(this).attr('key')]);
-        //       }
-        //   });
-        // }
     });
   },
   parseObj: function (jsondata) {
@@ -127,6 +129,6 @@ const Common = {
   },
   getApi: function () {
     config.apiUrl = localStorage.getItem('apiUrl');
-    config.imgUrl = localStorage.getItem('apiUrl');
+    config.imgUrl = localStorage.getItem('imgUrl');
   },
 };

@@ -1,12 +1,13 @@
 //Environment Setting productionEnv or stagingEnv  or developmentEnv
-var env = "stagingEnv";
+var env = "developmentEnv";
 
 //Site settings
 var config = {
   generalApi: "http://13.212.174.225/fgMain-api/merchantBo/",
   apiUrl: "",
   imgUrl: "",
-  pageSizenum: 30,
+  pageSize: 25,
+  pageLength: [10, 25,50,100],
   lang : '',
 }
 
@@ -16,6 +17,9 @@ if (env == "stagingEnv") {
 } else if (env == "developmentEnv") {
   config.generalApi = "//flexgaming.api/";
 }
+
+
+
 
 $(function() {
   Common.getLanguage();
